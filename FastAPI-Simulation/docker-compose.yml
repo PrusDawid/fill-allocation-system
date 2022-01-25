@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  aum-server:
+    build: ./aum-server
+    command: uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+    volumes:
+      - ./aum-server/:/app/
+  fill-server:
+    build: ./fill-server
+    command: uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+    volumes:
+      - ./fill-server/:/app/
+  controller-server:
+    build: ./controller-server
+    command: uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+    volumes:
+      - ./controller-server/:/app/
+    ports:
+      - "8080:8000"
+  position-server:
+    build: ./position-server
+    command: uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+    volumes:
+      - ./position-server/:/app/
+    ports:
+      - "8010:8000"
