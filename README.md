@@ -1,2 +1,3 @@
-# fill-allocation-system
-Test solution for interview AXA usage
+# Fill Allocation System
+
+Start with ```docker-compose up```
